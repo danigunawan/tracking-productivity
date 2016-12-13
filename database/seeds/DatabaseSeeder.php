@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersSeedeer::class);
          $this->call(KategoriTugasSeeder::class);
            $this->call(TugasSeeder::class);
+  $this->call(SubTugasSeeder::class);
+           
 
 
     }

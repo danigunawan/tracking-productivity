@@ -233,6 +233,7 @@ return redirect('/');
            $tugass = Tugas::where([['id_user_bertugas','=',$id_user], ['status_selesai', '=',1], ['status_konfirmasi', '=', 0],])->get();
     return view('dashboard.member', ['tugas' => $tugass]);
     }
+
      protected function tugasMemberKonfirmasi()
     {
           
@@ -240,4 +241,7 @@ return redirect('/');
            $tugass = Tugas::where([['id_user_bertugas','=',$id_user], ['status_selesai', '=',1], ['status_konfirmasi', '=', 1],])->get();
     return view('dashboard.member', ['tugas' => $tugass]);
     }
+
+
+
 }

@@ -36,7 +36,7 @@ Route::group(['prefix'=>'auditor', 'middleware'=>['auth','role:auditor']], funct
 Route::group(['prefix'=>'member', 'middleware'=>['auth','role:member']], function () {
 // Route diisi disini...
 	Route::resource('tugas', 'TugasController');
-	
+	Route::resource('subtugas', 'SubTugasController');
 });
 
 Route::post('tugas/komentar', [
@@ -80,6 +80,13 @@ Route::get('tugas/konfirmasi', [
 'middleware' => ['auth'],
 'as' => 'tugas.konfirmasi',
 'uses' => 'TugasController@konfirmasi'
+]);
+
+
+Route::get('subtugas/display/{id}', [
+'middleware' => ['auth'],
+'as' => 'subtugas.display',
+'uses' => 'SubTugasController@display'
 ]);
 
 

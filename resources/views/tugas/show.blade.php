@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
         <ul class="breadcrumb">
 <li><a href="{{ url('/home') }}">Dashboard</a></li>
-<li class="active">Komentar Tugas</li>
+<li class="active">Tugas {{ $tugas->nama_tugas }}</li>
 </ul>
     <!-- panel tugas -->
  <div class="panel panel-default">
@@ -23,7 +23,7 @@
                 {{ $tugas->deskripsi_tugas }}
 
                 </div>
-                <a  href="{{ route('tugas.show',$tugas->id_tugas)}}" class="btn btn-default">Sub Tugas</a> 
+                <a  href="{{ route('subtugas.display',$tugas->id_tugas)}}" class="btn btn-default">Sub Tugas</a> 
                 @role('member')
                 @if($tugas->status_selesai === 0)
                 <a  href="{{ route('tugas.finish',$tugas->id_tugas)}}" class="btn btn-danger">Selesai</a>
