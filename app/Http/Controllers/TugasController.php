@@ -9,6 +9,7 @@ use Laratrust\LaratrustFacade as Laratrust;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use Session;
+use App\Activity;
 class TugasController extends Controller
 {
     /**
@@ -154,8 +155,9 @@ return redirect('/');
         'isi_komentar' => 'required'
         ]);
 
-        $id_user = Auth::user()->id;
-      
+      $id_user = Auth::user()->id;
+      $tugas = Tugas::find($request->id_tugas);
+      $aktifitas = Activity::create(['id_user' => $id_user, 'nama_aktivitas' => "Mengirim Komentar di $tugas->nama_tugas",]);
 
         $tugas = KomentarTugas::create(['isi_komentar' => $request->isi_komentar, 'id_tugas' => $request->id_tugas,'id_user' =>  $id_user]);
 
